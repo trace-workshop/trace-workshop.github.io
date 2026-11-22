@@ -4,6 +4,14 @@ title: Page not found
 permalink: /404.html
 ---
 
+<script>
+  // Old links used /sigir2027/...; the site now lives at the root.
+  var oldPrefix = /^\/sigir2027(\/|$)/;
+  if (oldPrefix.test(location.pathname)) {
+    location.replace("/" + location.pathname.replace(oldPrefix, "") + location.search + location.hash);
+  }
+</script>
+
 <div class="text-center">
   <h1>Page not found</h1>
   <p>This page does not exist. It may have moved.</p>

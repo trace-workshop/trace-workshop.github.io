@@ -6,8 +6,8 @@
 # Each edition is its own repository "sigirYYYY" in the trace-workshop
 # GitHub organization, served at https://trace-workshop.github.io/sigirYYYY
 url: "https://trace-workshop.github.io"
-baseurl: "/sigir2027"
-url-pretty: "trace-workshop.github.io/sigir2027"
+baseurl: ""
+url-pretty: "trace-workshop.github.io"
 
 title: TRACE @ SIGIR 2027
 description: "The First Workshop on Trustworthy Retrieval Agents under Cost and Evidence Constraints"
