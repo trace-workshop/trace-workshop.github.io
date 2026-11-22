@@ -945,21 +945,23 @@ td.gutter {
 /* Program committee: name with institution underneath, in an even grid */
 .pc-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  gap: 18px 28px;
-  margin: 18px 0 40px;
+  grid-template-columns: max-content 1fr;
+  column-gap: 28px;
+  row-gap: 8px;
+  margin: 0 0 40px;
 }
-.pc-member {
-  padding-left: 0;
-}
+.pc-member { display: contents; }
 .pc-name {
   font-weight: 600;
-  line-height: 1.35;
+  line-height: 1.4;
 }
 .pc-affiliation {
-  font-size: 0.9em;
-  color: #666;
-  line-height: 1.35;
+  color: #5C5C5C;
+  line-height: 1.4;
+}
+@media (max-width: 600px) {
+  .pc-grid { grid-template-columns: 1fr; row-gap: 0; }
+  .pc-name { margin-top: 10px; }
 }
 
 html {
