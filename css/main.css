@@ -1136,3 +1136,8 @@ footer .copyright a {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
 }
+
+.venue strong {
+  font-weight: 700;
+  color: #2B2B2B;
+}

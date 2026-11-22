@@ -12,7 +12,7 @@ layout: base
   {% if page.url == "/" %}
   {% assign e = site.edition %}
   <div class="venue">
-    {{ e.conference }} &middot; {{ e.location }} &middot; {{ e.date }}{% if e.format %} ({{ e.format }}){% endif %}
+    {% if e.status == "proposal" %}<strong>Proposed</strong> workshop at {% endif %}{{ e.conference }} &middot; {{ e.location }} &middot; {{ e.date }}{% if e.format %} ({{ e.format }}){% endif %}
   </div>
   {% endif %}
   {{ content }}

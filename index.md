@@ -1,5 +1,6 @@
 ---
 css: ["/css/figures.css"]
+meta-title: "TRACE @ SIGIR 2027: Workshop on Trustworthy Retrieval Agents"
 ---
 
 {% include fig_budget.html %}

@@ -79,7 +79,11 @@
   <meta property="og:description" content="{{ page.content | strip_html | xml_escape | truncatewords: 50 }}">
   {% endif %}
 
-  <meta name="image" property="og:image" content="{{ site.url }}{{ site.baseurl }}/img/trace_icon.png">
+  <meta name="image" property="og:image" content="{{ site.url }}{{ site.baseurl }}/img/share.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="TRACE, an ACM SIGIR 2027 workshop on trustworthy retrieval agents under cost and evidence constraints">
+  <meta property="og:site_name" content="{{ site.title }}">
   
   <meta property="og:type" content="website" />
 
@@ -94,7 +98,8 @@
 
 
   <!-- Twitter summary cards -->
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}/img/share.png" />
   {% if site.author.twitter %}
   <meta name="twitter:site" content="@{{ site.author.twitter }}" />
   <meta name="twitter:creator" content="@{{ site.author.twitter }}" />
