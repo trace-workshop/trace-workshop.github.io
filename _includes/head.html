@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
   {% include page_nav_name.html %}
-  <title>{% if nav_name != "" %}{{ nav_name }} {{ site.title-separator }} {{ site.title }}{% elsif page.use-site-title %}{{ site.title }} {{ site.title-separator }} {{ site.description }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <title>{% if nav_name != "" %}{{ nav_name }} {{ site.title-separator }} {{ site.title }}{% elsif page.use-site-title %}{{ site.title }} {{ site.title-separator }} {{ site.description }}{% elsif page.title %}{{ page.title }} {{ site.title-separator }} {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
 
   <link rel="icon" href="{{ site.baseurl }}/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="{{ site.baseurl }}/img/trace_icon.png">

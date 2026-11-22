@@ -5,37 +5,37 @@
 ehossain:
   name: "Elias Hossain"
   url: "https://eliashossain001.github.io/"
-  affiliation: "UCF"
+  affiliation: "University of Central Florida"
   img: "ehossain.jpg"
   bio: "Elias Hossain is a PhD candidate in computer science at the University of Central Florida, working on inference-time reliability for LLMs, LLM judges, and agents. His work appears at NeurIPS (Main Track), EACL (Main Conference), and AACL-IJCNLP, and he serves as a reviewer for ICLR and NeurIPS. Previously, he worked in industry, where he developed production ASR systems and custom extensions for Linux and Windows."
 
 sdipta:
   name: "Shubhashis Roy Dipta"
   url: "https://roydipta.com/"
-  affiliation: "UMBC"
+  affiliation: "University of Maryland, Baltimore County"
   img: "sdipta.jpg"
-  bio: "Shubhashis Roy Dipta is a final-year PhD candidate in computer science at the University of Maryland, Baltimore County, working on LLM post-training with reinforcement learning, agents, reasoning, and evaluation. His work appears at NeurIPS, ACL, EMNLP, AACL-IJCNLP, and *SEM, including main-conference papers at EMNLP, ACL, and AACL-IJCNLP 2026. He has interned as an Applied Scientist at Amazon Alexa AI and serves as an area chair for ACL Rolling Review."
+  bio: "Shubhashis Roy Dipta is a final-year PhD candidate in computer science at the University of Maryland, Baltimore County, working on reinforcement-learning post-training for LLM agents, reasoning, and evaluation. His work on agents and retrieval includes query decomposition for multilingual video retrieval (AACL 2025) and policy-aware agent alignment (EMNLP 2026), with 2026 main-conference papers at NeurIPS, ACL, and EMNLP. He has interned at Amazon Alexa AI and Scale AI, built a token-efficient memory layer for LLM agents at Causal Dynamics Lab, and serves as an area chair for ACL Rolling Review."
 
 mrahman:
   name: "Mafizur Rahman"
   url: "https://mafizurrahman.github.io/"
-  affiliation: "Prairie View A&M"
+  affiliation: "Prairie View A&M University"
   img: "mrahman.jpg"
-  bio: "Mafizur Rahman is a PhD student in Electrical Engineering at Prairie View A&M University, working on LLM interpretability, multi-agent language models, and hardware-aware AI. Mafizur's work appears at ACL (Main Conference), UAI, IJCAI, WACV, and IEEE HOST, and in IEEE Transactions on Emerging Topics in Computational Intelligence. Mafizur received the university's Outstanding Graduate Student Award and was recognized as a NeurIPS 2026 Top Reviewer."
+  bio: "Mafizur Rahman is a PhD student in electrical engineering at Prairie View A&M University, working on LLM interpretability, multi-agent language models, and hardware-aware AI. This work appears at ACL (Main Conference), UAI, IJCAI, WACV, and IEEE HOST, and in IEEE Transactions on Emerging Topics in Computational Intelligence. Mafizur received the university's Outstanding Graduate Student Award and was recognized as a NeurIPS 2026 Top Reviewer."
 
 mweiss:
   name: "Martin Weiss"
   url: "https://lacuna.tiptreesystems.com/author/martin-weiss"
   affiliation: "Mila"
   img: "mweiss.jpg"
-  bio: "Martin Weiss is a postdoctoral researcher at Mila and the co-founder of Tiptree Systems, which builds research tools for machine learning problem formulation. Martin's research covers AI systems for scientific discovery, multi-agent modeling, and LLM agents for literature synthesis and research-direction generation. Martin's work appears at NeurIPS, ICLR, COLM, and AAMAS, and Martin served as Tech Chair of ICCV 2021."
+  bio: "Martin Weiss is a postdoctoral researcher at Mila and the co-founder of Tiptree Systems, which builds research tools for machine learning problem formulation. Research interests include AI systems for scientific discovery, multi-agent modeling, and LLM agents for literature synthesis and research-direction generation, with work at NeurIPS, ICLR, COLM, and AAMAS. Martin served as tech chair of ICCV 2021."
 
 skar:
   name: "Sudipta Kar"
   url: "https://sudiptakar.info/"
   affiliation: "Oracle"
   img: "skar.jpg"
-  bio: "Sudipta Kar is a Principal Applied Scientist at Oracle Health AI, building AI systems for clinical and healthcare applications. Sudipta was previously an Applied and Senior Applied Scientist at Amazon Alexa AI and holds a PhD in computer science from the University of Houston. Sudipta's research covers multilingual and low-resource NLP, conversational AI, and language modeling, including the MultiCoNER shared-task series and the LinCE benchmark."
+  bio: "Sudipta Kar is a Principal Applied Scientist at Oracle Health AI, building AI systems for clinical and healthcare applications. Before Oracle, Sudipta was an Applied Scientist and then a Senior Applied Scientist at Amazon Alexa AI, and holds a PhD in computer science from the University of Houston. Research interests cover multilingual and low-resource NLP, conversational AI, and language modeling, including the MultiCoNER shared-task series and the LinCE benchmark."
 
 dchoi:
   name: "Dasol Choi"

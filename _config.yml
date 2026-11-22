@@ -27,10 +27,11 @@ edition:
   proposal_decision: "February 15, 2027"
   # Leave empty until they exist; the pages show "to be announced".
   submission_url: ""
-  contact_email: ""
+  # One address, or several separated by commas.
+  contact_email: "mdelias.hossain@ucf.edu, sroydip1@umbc.edu"
   # Above 0 shows "Further organizers will be announced." Set to 0 when the team is complete.
   open_organizer_slots: 2
-  # Above 0 shows "Further keynote speakers and panelists will be announced." on the Speakers page.
+  # Above 0 shows "Panelists will be announced." on the home and Speakers pages.
   open_speaker_slots: 2
   dates:
     - label: "Call for papers opens"
@@ -75,7 +76,7 @@ page-col: "#FFFFFF"
 link-col: "#2A6F97"
 hover-col: "#1D4E6B"
 footer-col: "#F5F5F5"
-footer-text-col: "#777777"
+footer-text-col: "#595959"
 footer-link-col: "#404040"
 
 author:
@@ -102,6 +103,7 @@ exclude:
   - LICENSE
   - README.md
   - MAINTAINING.md
+  - docs
   - scripts
   - vendor
 

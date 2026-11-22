@@ -8,13 +8,13 @@
 {% if site.edition.open_organizer_slots > 0 %}Further organizers will be announced.{% endif %}
 
 {% if site.data.committee.size > 0 %}
-# Supporting Roles
+## Supporting Roles
 
 {% for c in site.data.committee %}
 - **{{ c.role }}:** {{ c.name }}{% if c.affiliation %} ({{ c.affiliation }}){% endif %}{% endfor %}
 {% endif %}
 
-# Program Committee
+## Program Committee
 
 {% if site.data.program_committee.size > 0 %}
 {% assign pc_keys = "" | split: "" %}

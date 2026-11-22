@@ -1,1 +1,1 @@
-{% if site.edition.contact_email != "" %}Contact: <{{ site.edition.contact_email }}>{% else %}A contact address will be posted soon.{% endif %}
+{% if site.edition.contact_email != "" %}{% assign emails = site.edition.contact_email | split: "," %}Contact: {% for e in emails %}{% assign a = e | strip %}[{{ a }}](mailto:{{ a }}){% if forloop.rindex == 2 %} or {% elsif forloop.last == false %}, {% endif %}{% endfor %}{% else %}A contact address will be posted soon.{% endif %}

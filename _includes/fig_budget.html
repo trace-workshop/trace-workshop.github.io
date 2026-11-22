@@ -1,0 +1,36 @@
+<figure class="tf" aria-label="The same AI agent at two search budgets">
+  <figcaption class="sr-only">An AI agent is asked whether drug X is safe to take with drug Y, and searches for evidence one search at a time. Search 2 finds Source A, which says the drugs are safe together. Search 12 finds Source B, which reports a serious interaction. In real life the agent stops after 3 searches, because less budget means lower latency. It then says the drugs are safe to combine, fully confident and wrong. In benchmarks it stops after 20 searches, with no hard limit on latency. It then reports that the sources disagree, which is appropriately uncertain. Benchmarks let agents search a lot, but real systems can afford only a few searches. TRACE asks how reliable agents are under real limits.</figcaption>
+  <div aria-hidden="true">
+    <p class="tf-q">“Is it safe to take drug X together with drug Y?”</p>
+    <p class="tf-sub">An AI agent searches for evidence, one dot per search</p>
+    <div class="tf-budgets">
+      <div class="tf-b"><b>IN REAL LIFE</b><span class="stop">stops after 3 searches</span><br>(less budget for lower latency)</div>
+      <div class="tf-b bench"><b>IN BENCHMARKS</b><span class="stop">stops after 20 searches</span><br>(more budget, no hard limit on latency)</div>
+    </div>
+    <div class="tf-track">
+      <div class="tf-zone"></div>
+      <div class="tf-chips">
+        <span class="tf-chip a"><b>Source A</b>“safe together”</span>
+        <span class="tf-chip b"><b>Source B</b>“serious interaction reported”</span>
+      </div>
+      <span class="tf-lead a"></span><span class="tf-lead b"></span>
+      <div class="tf-dots">
+        <i class="on"></i><i class="on mark" data-m="A"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="mark" data-m="B"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+      <div class="tf-ends"><span>1</span><span>20</span></div>
+    </div>
+    <div class="tf-ans">
+      <div class="tf-a">
+        <div class="who">Agent answers after 3 searches</div>
+        <div class="say">“Yes, they are safe to combine.”</div>
+        <div class="verdict"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" fill="#D03B3B"/><path d="M5 5 L11 11 M11 5 L5 11" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><span>Fully confident, and wrong: it never saw Source&nbsp;B</span></div>
+      </div>
+      <div class="tf-a ok">
+        <div class="who">Agent answers after 20 searches</div>
+        <div class="say">“Sources disagree; check the interaction.”</div>
+        <div class="verdict"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" fill="#0CA30C"/><path d="M4.5 8.2 L7 10.7 L11.5 5.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Appropriately uncertain: it reports the conflict</span></div>
+      </div>
+    </div>
+    <p class="tf-cap">Benchmarks let agents search a lot. Real systems can afford only a few searches. <b>TRACE asks: how reliable are agents under real limits?</b></p>
+  </div>
+</figure>
