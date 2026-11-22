@@ -32,7 +32,7 @@ edition:
   # Above 0 shows "Further organizers will be announced." Set to 0 when the team is complete.
   open_organizer_slots: 2
   # Above 0 shows "Panelists will be announced." on the home and Speakers pages.
-  open_speaker_slots: 2
+  open_speaker_slots: 0
   dates:
     - label: "Call for papers opens"
       date: "March 1, 2027"
@@ -67,7 +67,8 @@ navbar-links:
   Speakers & Panelists: "speakers"
   Organizers: "organizers"
   Schedule: "schedule"
-  Papers: "papers"
+  # Add back after author notification:
+  # Papers: "papers"
 
 navbar-col: "#F5F5F5"
 navbar-text-col: "#404040"

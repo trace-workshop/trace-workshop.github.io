@@ -1,6 +1,15 @@
 # Keynote speakers and panelists. Only list people who have CONFIRMED.
 # Keep them in alphabetical order by LAST name (the pages show them in this order).
 # img: a photo in img/; leave empty for the placeholder.
+# status: the role shown under the name (for example "Keynote (Academic)" or "Panelist").
+
+slim:
+  name: "Ser-Nam Lim"
+  url: "https://www.cs.ucf.edu/person/ser-nam-lim/"
+  affiliation: "University of Central Florida"
+  img: "slim.jpg"
+  bio: "Ser-Nam Lim is an Associate Professor of Computer Science at the University of Central Florida and a member of the UCF AI Initiative. Research interests cover computer vision and multimodal AI, including generative AI. From 2018 to 2023, Ser-Nam managed multiple AI teams at Meta working on computer vision, NLP, and other areas, including understanding user-uploaded images and videos for platform safety. Ser-Nam holds a PhD in computer science from the University of Maryland, College Park."
+  status: "Panelist"
 
 yliu:
   name: "Yan Liu"
@@ -8,6 +17,23 @@ yliu:
   affiliation: "University of Southern California"
   img: "yliu.jpg"
   bio: "Yan Liu is a Professor and the Fletcher Jones Foundation Endowed Chair of Computer Science at the University of Southern California, where she directs the USC Machine Learning Center and co-directs the USC Institute on Ethics and Trust in Computing. Her research covers machine learning for time series, physics-informed machine learning, and interpretable machine learning. She is a Fellow of IEEE and AAAI and was general chair of ICLR 2023 and ACM KDD 2020."
+  status: "Keynote (Academic)"
+
+nraihan:
+  name: "Nishat Raihan"
+  url: "https://md-nishat.com/"
+  affiliation: "University of Notre Dame"
+  img: "nraihan.jpg"
+  bio: "Nishat Raihan is a Provost's Postdoctoral Fellow in Computer Science and Engineering at the University of Notre Dame, with a PhD from George Mason University. Nishat's research covers code LLMs, multilingual and low-resource NLP, and LLM safety guardrails, and Nishat is the lead organizer of the LangCode workshop at NAACL 2027."
+  status: "Panelist"
+
+sshahriar:
+  name: "Sadat Shahriar"
+  url: "https://www.alphaxiv.org/@sadat-shahriar"
+  affiliation: "Amazon"
+  img: "sshahriar.jpg"
+  bio: "Sadat Shahriar is an Applied Scientist at Amazon working on safety and authorization systems for LLM agents, with a PhD in computer science from the University of Houston. Sadat's research covers deception detection across phishing, fake news, and online scams, and the detection of LLM-generated text."
+  status: "Panelist"
 
 fshihab:
   name: "Ibne Farabi Shihab"
@@ -15,26 +41,4 @@ fshihab:
   affiliation: "Amazon"
   img: "fshihab.jpg"
   bio: "Ibne Farabi Shihab is an Applied Scientist II at Amazon in Sunnyvale, working on agentic bot systems, and holds a PhD in computer science from Iowa State University. His recent work on the reliability of LLM systems, including risk certification of LLM outputs, retrieval-anchored decoding for faithful RAG, and stress-testing of process reward models, appears at NeurIPS, ICML, ACL, and EMNLP, and he serves as an area chair for ACL Rolling Review."
-
-# Hidden for now (uncomment to show again):
-# sshahriar:
-#   name: "Sadat Shahriar"
-#   url: "https://www.alphaxiv.org/@sadat-shahriar"
-#   affiliation: "Amazon"
-#   img: ""
-#   bio: "Sadat Shahriar is an Applied Scientist at Amazon working on safety and authorization systems for LLM agents, with a PhD in computer science from the University of Houston. Sadat's research covers deception detection across phishing, fake news, and online scams, and the detection of LLM-generated text."
-#
-# nraihan:
-#   name: "Nishat Raihan"
-#   url: "https://md-nishat.com/"
-#   affiliation: "Notre Dame"
-#   img: ""
-#   bio: "Nishat Raihan is a Provost's Postdoctoral Fellow in Computer Science and Engineering at the University of Notre Dame, with a PhD from George Mason University. Nishat's research covers code LLMs, multilingual and low-resource NLP, and LLM safety guardrails, and Nishat is the lead organizer of the LangCode workshop at NAACL 2027."
-
-# Not yet confirmed -- uncomment once they accept:
-# slim:
-#   name: "Ser-Nam Lim"
-#   url: ""
-#   affiliation: "UCF"
-#   img: "slim.jpg"
-#   bio: ""
+  status: "Keynote (Industry)"

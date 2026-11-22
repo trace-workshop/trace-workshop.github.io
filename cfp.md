@@ -25,8 +25,8 @@ Much work on RAG, agents, and LLM evaluation can be connected to this theme. Bec
 
 ## Tracks
 
-- **Research papers** (4–8 pages): new work.
-- **Short and position papers** (2–4 pages): including extended abstracts of recently published work.
+- **Research papers** (5–8 pages): new work.
+- **Short and position papers** (2–4 pages): early results, position statements, or extended abstracts of recently published work.
 - **Failure traces**: a short description of an input, the agent's retrieval and reasoning trace, and the erroneous outcome. Traces are accepted on a rolling basis without formal review and are used as material for the Failure Clinic.{% if site.edition.status == "proposal" %} The trace format, a template, and how to send a trace will be posted once the workshop is accepted.{% endif %}
 
 ## Submission Requirements
@@ -37,11 +37,13 @@ Papers should use the [ACM two-column conference format](https://www.acm.org/pub
 \documentclass[sigconf,anonymous,review]{acmart}
 ```
 
-Page limits exclude references. Reviewing is **double-blind**, so submissions must be anonymized. Each paper receives at least two reviews.
+Page limits exclude references. Reviewing is **double-blind** for all reviewed tracks, so every paper, including extended abstracts of published work, must be anonymized. Each paper receives at least two reviews.
 
-The workshop is **non-archival**, so that authors may later publish extended versions at archival venues. Preprints on arXiv and other non-archival venues are welcome.
+The workshop is **non-archival**, so that authors may later publish extended versions at archival venues. Preprints on arXiv and other non-archival venues are welcome. Papers under review at other venues may be submitted concurrently, subject to ACM SIGIR policies.
 
-Every accepted paper will be presented as a five-minute lightning talk and as a poster. Accepted papers, lightning-talk slides, and, optionally, poster thumbnails will be posted on the [Papers]({{ site.baseurl }}/papers) page. Presenters are expected to attend in person; authors who cannot travel because of funding or visa constraints may have their poster presented by a co-author or an organizer.
+Every accepted paper will have a poster presentation, and up to six papers will be selected for five-minute lightning talks. Accepted papers, lightning-talk slides, and, optionally, poster thumbnails will be posted on the [Papers]({{ site.baseurl }}/papers) page after author notification.
+
+At least one author of each accepted paper must register for the workshop. Presentations are in person by default. Authors who cannot travel because of visa or funding constraints may have their poster or talk presented by a co-author or an organizer.
 
 Submission site: {% if site.edition.submission_url != "" %}**[{{ site.edition.submission_url }}]({{ site.edition.submission_url }})**{% else %}**to be announced**{% endif %}.
 

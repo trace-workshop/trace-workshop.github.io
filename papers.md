@@ -1,4 +1,5 @@
 ---
+nav-title: "Papers"
 ---
 
 # Accepted Papers
