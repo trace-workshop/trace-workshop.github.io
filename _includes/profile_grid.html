@@ -1,4 +1,3 @@
 <div class="profile-grid">
   {% for p in include.people %}{% include profile.html p=p %}{% endfor %}
-  {% if include.open_slots and include.open_slots > 0 %}{% for i in (1..include.open_slots) %}{% include profile_open_slot.html %}{% endfor %}{% endif %}
 </div>

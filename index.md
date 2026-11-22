@@ -38,8 +38,8 @@ The half-day program is built around a hands-on **Failure Clinic**. Before the w
 <hr>
 
 # Speakers & Panelists
-<div class="container" style="margin-top: 20px;margin-bottom: 0px;">
-{% include profile_grid.html people=site.data.speakers open_slots=site.edition.open_speaker_slots %}
+<div class="profile-section">
+{% include profile_grid.html people=site.data.speakers %}
 </div>
 
 {% if site.data.speakers.size > 0 %}Further keynote speakers and panelists will be announced.{% else %}Keynote speakers and panelists will be announced.{% endif %}
@@ -49,9 +49,11 @@ The half-day program is built around a hands-on **Failure Clinic**. Before the w
 # Organizers
 
 <!-- prettier-ignore -->
-<div class="container" style="margin-top: 25px;margin-bottom: 40px;">
-{% include profile_grid.html people=site.data.organizers open_slots=site.edition.open_organizer_slots %}
+<div class="profile-section">
+{% include profile_grid.html people=site.data.organizers %}
 </div>
+
+{% if site.edition.open_organizer_slots > 0 %}Further organizers will be announced.{% endif %}
 
 <hr>
 

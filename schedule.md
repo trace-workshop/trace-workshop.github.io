@@ -7,14 +7,10 @@ Below is a **tentative** schedule for the {{ site.edition.format }} workshop on 
 
 #### All times are in {{ site.edition.timezone_label }}
 
-<div class="container">
-  <div class="row">
-    <table class="table">
-      {% for s in site.data.schedule %}
-      <tr><td style="width: 180px;">{{ s.time }}</td><td>{{ s.item | markdownify | remove: '<p>' | remove: '</p>' }}</td></tr>
-      {% endfor %}
-    </table>
-  </div>
-</div>
+<table class="table schedule-table">
+  {% for s in site.data.schedule %}
+  <tr><td class="schedule-time">{{ s.time }}</td><td>{{ s.item | markdownify | remove: '<p>' | remove: '</p>' }}</td></tr>
+  {% endfor %}
+</table>
 
 The panel takes the strongest disagreements surfaced in the Failure Clinic as its opening questions and reserves half of its time for the audience. Keynotes and the panel will be recorded and posted online, subject to equipment and speaker consent.

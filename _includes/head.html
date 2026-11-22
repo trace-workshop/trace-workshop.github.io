@@ -1,15 +1,10 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-  <script>
-    var shiftWindow = function() { scrollBy(0, -50) };
-    window.addEventListener("hashchange", shiftWindow);
-    function load() { if (window.location.hash) shiftWindow(); }
-  </script>
-  
-  <title>{% if page.use-site-title %}{{ site.title }} {{ site.title-separator }} {{ site.description }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+  {% include page_nav_name.html %}
+  <title>{% if nav_name != "" %}{{ nav_name }} {{ site.title-separator }} {{ site.title }}{% elsif page.use-site-title %}{{ site.title }} {{ site.title-separator }} {{ site.description }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
 
   <link rel="icon" href="{{ site.baseurl }}/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="{{ site.baseurl }}/img/trace_icon.png">
@@ -19,6 +14,10 @@
 
   {% if page.subtitle %}
   <meta name="description" content="{{ page.subtitle }}">
+  {% endif %}
+
+  {% if site.social-network-links.size > 0 %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
   {% endif %}
 
   {% if layout.common-ext-css %}
@@ -64,6 +63,8 @@
 
   {% if page.meta-title %}
   <meta property="og:title" content="{{ page.meta-title }}" />
+  {% elsif nav_name != "" %}
+  <meta property="og:title" content="{{ nav_name }} {{ site.title-separator }} {{ site.title }}" />
   {% elsif page.title %}
   <meta property="og:title" content="{{ page.title }}" />
   {% else %}
@@ -82,13 +83,8 @@
   
   <meta property="og:type" content="website" />
 
-  {% if page.id %}
-  <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
-  <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
-  {% else %}
-  <meta property="og:url" content="{{ site.url }}{{ page.url | remove: '/index.html' | remove: '.html' }}" />
-  <link rel="canonical" href="{{ site.url }}{{ page.url | remove: '/index.html' | remove: '.html' }}" />
-  {% endif %}
+  <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url | remove: '/index.html' | remove: '.html' }}" />
+  <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url | remove: '/index.html' | remove: '.html' }}" />
 
   {% if page.share-img %}
   <meta property="og:image" content="{{ page.share-img }}" />
@@ -106,6 +102,8 @@
 
   {% if page.meta-title %}
   <meta name="twitter:title" content="{{ page.meta-title }}" />
+  {% elsif nav_name != "" %}
+  <meta name="twitter:title" content="{{ nav_name }} {{ site.title-separator }} {{ site.title }}" />
   {% elsif page.title %}
   <meta name="twitter:title" content="{{ page.title }}" />
   {% else %}

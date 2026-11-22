@@ -15,11 +15,11 @@
       {% if site.title-img %}
       <a
         class="navbar-brand navbar-brand-logo"
-        href="{{ site.url }}{{ site.baseurl }}/"
+        href="{{ site.baseurl }}/"
         ><img src="{{ site.title-img }}"
       /></a>
       {% else %}
-      <a class="navbar-brand" href="{{ site.url }}{{ site.baseurl }}/">{{
+      <a class="navbar-brand" href="{{ site.baseurl }}/">{{
         site.title
       }}</a>
       {% endif %}
@@ -36,8 +36,8 @@
           </div>
         </li>
         {% else %}
-        <li>
-          {% include navbarlink.html link=link %}
+        <li{% if link[0] == nav_name %} class="active"{% endif %}>
+          {% include navbarlink.html link=link current=nav_name %}
         </li>
         {% endif %} {% endfor %}
       </ul>

@@ -2,12 +2,18 @@
 layout: base
 ---
 
+{% if page.url == "/" %}
 {% include header.html type="page" %}
+{% else %}
+<div class="subpage-top"></div>
+{% endif %}
 
 <div class="container" role="main">
+  {% if page.url == "/" %}
   {% assign e = site.edition %}
-  <div class="venue" style="font-size: 27px; display: block; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 300; color: #404040; text-align: center;">
+  <div class="venue">
     {{ e.conference }} &middot; {{ e.location }} &middot; {{ e.date }}{% if e.format %} ({{ e.format }}){% endif %}
   </div>
+  {% endif %}
   {{ content }}
 </div>

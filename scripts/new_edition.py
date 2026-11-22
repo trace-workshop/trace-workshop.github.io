@@ -78,9 +78,9 @@ edition:
   # Leave empty until they exist; the pages show "to be announced".
   submission_url: ""
   contact_email: "{contact_email}"
-  # Number of "To be invited" boxes shown after the organizers. Lower it as people join.
+  # Above 0 shows "Further organizers will be announced." Set to 0 when the team is complete.
   open_organizer_slots: 0
-  # Number of "To be invited" boxes shown after the speakers and panelists.
+  # Above 0 shows "Further keynote speakers and panelists will be announced." on the Speakers page.
   open_speaker_slots: 0
   dates:
 {dates}

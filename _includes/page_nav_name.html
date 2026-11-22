@@ -1,0 +1,1 @@
+{% assign nav_name = "" %}{% assign page_slug = page.url | remove: "/" %}{% for link in site.navbar-links %}{% if link[1] == page_slug %}{% assign nav_name = link[0] %}{% endif %}{% endfor %}

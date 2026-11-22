@@ -18,7 +18,7 @@ the previous one.
 |---|---|
 | Year, venue, date, key dates, submission link, contact email, status banner | `_config.yml`, EDITION SETTINGS block |
 | Organizers (and their photos) | `_data/organizers.yml`, `img/` |
-| "To be invited" boxes after the organizers / speakers | `edition.open_organizer_slots` / `edition.open_speaker_slots` in `_config.yml` (restart `jekyll serve` after changing it) |
+| "Further organizers / speakers will be announced" lines (shown when the value is above 0) | `edition.open_organizer_slots` / `edition.open_speaker_slots` in `_config.yml` (restart `jekyll serve` after changing it) |
 | Keynotes and panelists | `_data/speakers.yml` (confirmed people only) |
 | Publicity chair and other roles | `_data/committee.yml` |
 | Program committee | `_data/program_committee.yml` |
