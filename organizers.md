@@ -8,7 +8,7 @@
 {% if site.edition.open_organizer_slots > 0 %}Further organizers will be announced.{% endif %}
 
 {% for c in site.data.committee %}
-**{{ c.role }}:** {{ c.name }}{% if c.affiliation %} ({{ c.affiliation }}){% endif %}
+**{{ c.role }}:** {{ c.name }}{% if c.affiliation and c.affiliation != "" %} ({{ c.affiliation }}){% endif %}
 {% endfor %}
 
 ## Program Committee

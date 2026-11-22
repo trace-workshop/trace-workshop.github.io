@@ -25,7 +25,7 @@ TRACE is not a workshop on agent capabilities in general; it concerns the trustw
 
 ## The Failure Clinic
 
-The half-day program is built around a hands-on **Failure Clinic**. Before the workshop, presenters and registered participants contribute *failure traces*: an input, the agent's retrieval and reasoning trace, and the erroneous outcome. During the session, participants work in small groups. An organizer or program committee member leads each group. Groups classify the traces against a draft taxonomy, propose revisions, and identify failures that current metrics would not detect. The principal outputs are a **shared taxonomy of agentic retrieval failures** and a public **list of open evaluation problems**, to be summarized in a report to *SIGIR Forum*.
+The half-day program is built around a hands-on **Failure Clinic**. Before the workshop, presenters and registered participants contribute *failure traces*: the question, the agent's actions and retrieved evidence, the incorrect output, and a possible reason for the failure. The organizers select representative traces to build a draft taxonomy. During the session, participants work in small groups of 6 to 8 people. An organizer or program committee member leads each group. Groups classify the traces against a draft taxonomy, propose revisions, and identify failures that current metrics would not detect. The principal outputs are a **shared taxonomy of agentic retrieval failures** and a public **list of open evaluation problems**, to be summarized in a report to *SIGIR Forum*.
 
 {% include fig_clinic.html %}
 

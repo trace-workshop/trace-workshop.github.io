@@ -1,4 +1,5 @@
 # Supporting roles shown on the Organizers page.
-- role: "Failure Clinic Trace Collection"
-  name: "Sourav Saha"
-  affiliation: "University of Central Florida"
+# name may list several people; leave affiliation empty if it is already in name.
+- role: "Failure Clinic trace collection"
+  name: "Martin Weiss (Mila) and Sourav Saha (University of Central Florida)"
+  affiliation: ""

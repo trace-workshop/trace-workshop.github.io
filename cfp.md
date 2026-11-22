@@ -27,7 +27,7 @@ Much work on RAG, agents, and LLM evaluation can be connected to this theme. Bec
 
 - **Research papers** (5–8 pages): new work.
 - **Short and position papers** (2–4 pages): early results, position statements, or extended abstracts of recently published work.
-- **Failure traces**: a short description of an input, the agent's retrieval and reasoning trace, and the erroneous outcome. Traces are accepted on a rolling basis without formal review and are used as material for the Failure Clinic.{% if site.edition.status == "proposal" %} The trace format, a template, and how to send a trace will be posted once the workshop is accepted.{% endif %}
+- **Failure traces**: a short description of one agent failure, with five parts: the question, the agent's actions, the retrieved evidence, the incorrect output, and a possible reason for the failure. Traces are accepted on a rolling basis without formal review and are used as material for the Failure Clinic.{% if site.edition.status == "proposal" %} The submission form and template will be posted once the workshop is accepted.{% endif %}
 
 ## Submission Requirements
 
