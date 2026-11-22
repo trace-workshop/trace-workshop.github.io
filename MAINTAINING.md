@@ -17,7 +17,7 @@ Until an archive repository exists, `404.html` sends old `/sigir2027/...` links 
 |---|---|
 | Year, venue, date, key dates, submission link, contact email, status banner | `_config.yml`, EDITION SETTINGS block |
 | Organizers (and their photos) | `_data/organizers.yml`, `img/` |
-| "Further organizers will be announced" / "Panelists will be announced" lines (shown when the value is above 0) | `edition.open_organizer_slots` / `edition.open_speaker_slots` in `_config.yml` (restart `jekyll serve` after changing it) |
+| "Further organizers will be announced" / "Further panelists will be announced" lines (shown when the value is above 0) | `edition.open_organizer_slots` / `edition.open_speaker_slots` in `_config.yml` (restart `jekyll serve` after changing it) |
 | Keynotes and panelists | `_data/speakers.yml` (confirmed people only) |
 | Publicity chair and other roles | `_data/committee.yml` |
 | Program committee | `_data/program_committee.yml` |

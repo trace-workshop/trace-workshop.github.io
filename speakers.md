@@ -7,4 +7,4 @@ Speakers are listed in alphabetical order by last name. For the actual order and
 
 {% include profile_list.html people=site.data.speakers %}
 
-{% if site.edition.open_speaker_slots > 0 %}Panelists will be announced.{% endif %}
+{% if site.edition.open_speaker_slots > 0 %}Further panelists will be announced.{% endif %}

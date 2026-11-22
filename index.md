@@ -34,7 +34,7 @@ The half-day program is built around a hands-on **Failure Clinic**. Before the w
 {% include profile_grid.html people=site.data.speakers %}
 </div>
 
-{% if site.edition.open_speaker_slots > 0 %}Panelists will be announced.{% endif %}
+{% if site.edition.open_speaker_slots > 0 %}Further panelists will be announced.{% endif %}
 
 ## Organizers
 

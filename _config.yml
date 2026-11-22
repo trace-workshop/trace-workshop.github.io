@@ -31,8 +31,8 @@ edition:
   contact_email: "mdelias.hossain@ucf.edu, sroydip1@umbc.edu"
   # Above 0 shows "Further organizers will be announced." Set to 0 when the team is complete.
   open_organizer_slots: 2
-  # Above 0 shows "Panelists will be announced." on the home and Speakers pages.
-  open_speaker_slots: 0
+  # Above 0 shows "Further panelists will be announced." on the home and Speakers pages.
+  open_speaker_slots: 2
   dates:
     - label: "Call for papers opens"
       date: "March 1, 2027"

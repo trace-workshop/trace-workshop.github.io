@@ -19,22 +19,6 @@ yliu:
   bio: "Yan Liu is a Professor and the Fletcher Jones Foundation Endowed Chair of Computer Science at the University of Southern California, where she directs the USC Machine Learning Center and co-directs the USC Institute on Ethics and Trust in Computing. Her research covers machine learning for time series, physics-informed machine learning, and interpretable machine learning. She is a Fellow of IEEE and AAAI and was general chair of ICLR 2023 and ACM KDD 2020."
   status: "Keynote (Academic)"
 
-nraihan:
-  name: "Nishat Raihan"
-  url: "https://md-nishat.com/"
-  affiliation: "University of Notre Dame"
-  img: "nraihan.jpg"
-  bio: "Nishat Raihan is a Provost's Postdoctoral Fellow in Computer Science and Engineering at the University of Notre Dame, with a PhD from George Mason University. Nishat's research covers code LLMs, multilingual and low-resource NLP, and LLM safety guardrails, and Nishat is the lead organizer of the LangCode workshop at NAACL 2027."
-  status: "Panelist"
-
-sshahriar:
-  name: "Sadat Shahriar"
-  url: "https://www.alphaxiv.org/@sadat-shahriar"
-  affiliation: "Amazon"
-  img: "sshahriar.jpg"
-  bio: "Sadat Shahriar is an Applied Scientist at Amazon working on safety and authorization systems for LLM agents, with a PhD in computer science from the University of Houston. Sadat's research covers deception detection across phishing, fake news, and online scams, and the detection of LLM-generated text."
-  status: "Panelist"
-
 fshihab:
   name: "Ibne Farabi Shihab"
   url: "https://farabi1038.github.io/"
@@ -42,3 +26,20 @@ fshihab:
   img: "fshihab.jpg"
   bio: "Ibne Farabi Shihab is an Applied Scientist II at Amazon in Sunnyvale, working on agentic bot systems, and holds a PhD in computer science from Iowa State University. His recent work on the reliability of LLM systems, including risk certification of LLM outputs, retrieval-anchored decoding for faithful RAG, and stress-testing of process reward models, appears at NeurIPS, ICML, ACL, and EMNLP, and he serves as an area chair for ACL Rolling Review."
   status: "Keynote (Industry)"
+
+# Hidden for now (uncomment to show again):
+# nraihan:
+#   name: "Nishat Raihan"
+#   url: "https://md-nishat.com/"
+#   affiliation: "University of Notre Dame"
+#   img: "nraihan.jpg"
+#   bio: "Nishat Raihan is a Provost's Postdoctoral Fellow in Computer Science and Engineering at the University of Notre Dame, with a PhD from George Mason University. Nishat's research covers code LLMs, multilingual and low-resource NLP, and LLM safety guardrails, and Nishat is the lead organizer of the LangCode workshop at NAACL 2027."
+#   status: "Panelist"
+#
+# sshahriar:
+#   name: "Sadat Shahriar"
+#   url: "https://www.alphaxiv.org/@sadat-shahriar"
+#   affiliation: "Amazon"
+#   img: "sshahriar.jpg"
+#   bio: "Sadat Shahriar is an Applied Scientist at Amazon working on safety and authorization systems for LLM agents, with a PhD in computer science from the University of Houston. Sadat's research covers deception detection across phishing, fake news, and online scams, and the detection of LLM-generated text."
+#   status: "Panelist"

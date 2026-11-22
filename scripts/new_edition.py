@@ -98,7 +98,7 @@ edition:
   contact_email: "{contact_email}"
   # Above 0 shows "Further organizers will be announced." Set to 0 when the team is complete.
   open_organizer_slots: 0
-  # Above 0 shows "Panelists will be announced." on the home and Speakers pages.
+  # Above 0 shows "Further panelists will be announced." on the home and Speakers pages.
   open_speaker_slots: 0
   dates:
 {dates}
