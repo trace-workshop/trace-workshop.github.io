@@ -138,3 +138,12 @@ var main = {
 // 2fc73a3a967e97599c9763d05e564189
 
 document.addEventListener('DOMContentLoaded', main.init);
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href]').forEach(function(a) {
+    if (/^https?:$/.test(a.protocol) && a.hostname !== location.hostname) {
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+    }
+  });
+});
