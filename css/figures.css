@@ -101,3 +101,7 @@
   .tc-step[data-phase]::before { content: attr(data-phase); font-size: 12.5px; font-weight: 700; letter-spacing: .02em; color: var(--ink2); margin: -2px 0 4px; }
   .tc-step:not(:last-child)::after { right: auto; left: 24px; top: auto; bottom: -15px; transform: rotate(135deg); }
 }
+
+@media (min-width: 1200px) {
+  .tf { width: 962px; max-width: none; margin-left: calc(50% - 481px); }
+}
