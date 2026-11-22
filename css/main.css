@@ -1147,3 +1147,12 @@ footer .copyright a {
   font-weight: 700;
   color: #2B2B2B;
 }
+
+.heading-note {
+  display: inline-block;
+  white-space: nowrap;
+  margin-left: 8px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #5C5C5C;
+}

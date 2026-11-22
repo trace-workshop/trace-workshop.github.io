@@ -11,14 +11,12 @@
 **{{ c.role }}:** {{ c.name }}{% if c.affiliation and c.affiliation != "" %} ({{ c.affiliation }}){% endif %}
 {% endfor %}
 
-## Program Committee
+## Program Committee <span class="heading-note">(in alphabetical order)</span> {#program-committee}
 
 {% if site.data.program_committee.size > 0 %}
-{% assign pc_keys = "" | split: "" %}
-{% for m in site.data.program_committee %}{% assign last = m.name | split: " " | last %}{% assign k = last | append: "|" | append: m.name %}{% assign pc_keys = pc_keys | push: k %}{% endfor %}
-{% assign pc_keys = pc_keys | sort_natural %}
+{% assign pc = site.data.program_committee | sort_natural: "name" %}
 <div class="pc-grid">
-  {% for k in pc_keys %}{% assign n = k | split: "|" | last %}{% assign m = site.data.program_committee | where: "name", n | first %}<div class="pc-member"><div class="pc-name">{{ m.name }}</div><div class="pc-affiliation">{{ m.affiliation }}</div></div>{% endfor %}
+  {% for m in pc %}<div class="pc-member"><div class="pc-name">{{ m.name }}</div><div class="pc-affiliation">{{ m.affiliation }}</div></div>{% endfor %}
 </div>
 {% else %}
 The program committee will be announced.
