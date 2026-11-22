@@ -2,7 +2,7 @@
 
 Website for **TRACE: The First Workshop on Trustworthy Retrieval Agents under Cost and Evidence Constraints**, ACM SIGIR 2027, San Jose, CA.
 
-Live at: https://trace-workshop.github.io/sigir2027 (repository `trace-workshop/sigir2027`)
+Live at: https://trace-workshop.github.io/ (repository `trace-workshop/trace-workshop.github.io`). Old links under `/sigir2027/` redirect to the same page at the root (see `404.html`).
 
 Built with Jekyll on the [beautiful-jekyll](https://deanattali.com/beautiful-jekyll/) theme (MIT, see `LICENSE`), adapted from the MATH-AI 2026 workshop site layout. Yearly upkeep is described in **[MAINTAINING.md](MAINTAINING.md)**.
 
@@ -27,19 +27,26 @@ scripts/new_edition.py   creates next year's site from this one
 ```
 
 Pages never hard-code dates or the venue; they read them from `_config.yml` and `_data/`.
-Internal links must start with `{{ site.baseurl }}` because the site lives under `/sigir2027`.
+Internal links must start with `{{ site.baseurl }}`. It is empty today because the site lives at the root, but the prefix lets the site move to a sub-path without broken links.
 
 ## Publishing on GitHub Pages
 
 1. Create (once) a GitHub organization named `trace-workshop`.
-2. Create a public repository **`sigir2027`** in it and push this folder to `main`.
+2. Create a public repository **`trace-workshop.github.io`** in it and push this folder to `main`.
 3. *Settings → Pages → Build and deployment → Source: Deploy from a branch*, branch `main`, folder `/ (root)`.
-4. The site is live at `https://trace-workshop.github.io/sigir2027` within a few minutes.
+4. The site is live at `https://trace-workshop.github.io/` within a few minutes.
 
 ## Local preview
 
 ```bash
 bundle install
 bundle exec jekyll serve
-# open http://localhost:4000/sigir2027/
+# open http://localhost:4000/
+```
+
+The `github-pages` gem needs Ruby below 4.0. If your Ruby is newer, run the site in Docker instead:
+
+```bash
+docker run --rm -p 4000:4000 -v "$PWD":/site -v trace-gems:/usr/local/bundle -w /site ruby:3.3 \
+  sh -c "bundle install && bundle exec jekyll serve --host 0.0.0.0 --force_polling"
 ```

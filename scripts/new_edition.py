@@ -1,23 +1,32 @@
 #!/usr/bin/env python3
-"""Create next year's TRACE website from this one.
+"""Start next year's TRACE edition.
+
+The root site (https://trace-workshop.github.io/) always shows the latest
+edition. Starting a new year does two things:
+
+  1. ARCHIVE: copies this site to ../sigirYYYY (the outgoing year), sets its
+     base URL to /sigirYYYY and its status to "past". You push that folder to
+     a new repository trace-workshop/sigirYYYY, so the old edition stays
+     online at https://trace-workshop.github.io/sigirYYYY.
+  2. RESET IN PLACE: rewrites this site for the new year: edition number + 1,
+     all dates "TBD", status "proposal", the outgoing year added to Past
+     Editions, and speakers, accepted papers, program committee and news
+     emptied. Organizers, committee, schedule and page text are kept for you
+     to edit.
 
 Usage (run from anywhere):
     python3 scripts/new_edition.py 2028
-    python3 scripts/new_edition.py 2028 --out ../sigir2028
+    python3 scripts/new_edition.py 2028 --archive-out ../sigir2027
 
-What it does:
-  * copies this site (without .git, build output, caches) to ../sigirYYYY
-  * rewrites the EDITION SETTINGS block of _config.yml for the new year
-    (edition number + 1, new base URL, all dates reset to "TBD")
-  * adds the current edition to _data/past_editions.yml
-  * empties speakers, accepted papers, program committee and news
-  * keeps organizers, committee, schedule and page text for you to edit
+Commit or stash your work first: the script refuses to run on a git tree with
+uncommitted changes, because step 2 edits files in place.
 
 Standard library only; no PyYAML needed.
 """
 import argparse
 import re
 import shutil
+import subprocess
 import sys
 from pathlib import Path
 
@@ -26,9 +35,10 @@ ORDINALS = {1: "First", 2: "Second", 3: "Third", 4: "Fourth", 5: "Fifth",
 
 START = "# >>> EDITION SETTINGS"
 END = "# <<< END OF EDITION SETTINGS"
+SITE = "https://trace-workshop.github.io"
 
 SKIP = {".git", "_site", ".jekyll-cache", ".sass-cache", "vendor", ".bundle",
-        "Gemfile.lock", ".jekyll-metadata"}
+        "Gemfile.lock", ".jekyll-metadata", ".superpowers", ".playwright-mcp"}
 
 
 def ordinal(n: int) -> str:
@@ -45,6 +55,13 @@ def field(text: str, key: str) -> str:
     return m.group(1).strip()
 
 
+def set_field(text: str, key: str, value: str) -> str:
+    new, n = re.subn(rf'^(\s*{re.escape(key)}:\s*).*$', lambda m: f'{m.group(1)}"{value}"', text, count=1, flags=re.M)
+    if n != 1:
+        sys.exit(f"Could not set '{key}' in _config.yml")
+    return new
+
+
 def edition_block(year: int, number: int, contact_email: str, labels: list[str]) -> str:
     title_long = (f"The {ordinal(number)} Workshop on Trustworthy Retrieval Agents "
                   "under Cost and Evidence Constraints")
@@ -53,11 +70,11 @@ def edition_block(year: int, number: int, contact_email: str, labels: list[str])
 # scripts/new_edition.py rewrites this block when it creates the next edition.
 # =============================================================================
 
-# Each edition is its own repository "sigirYYYY" in the trace-workshop
-# organization, served at https://trace-workshop.github.io/sigirYYYY
-url: "https://trace-workshop.github.io"
-baseurl: "/sigir{year}"
-url-pretty: "trace-workshop.github.io/sigir{year}"
+# The root site always shows the latest edition. Past editions are archived
+# in their own repositories, served at {SITE}/sigirYYYY
+url: "{SITE}"
+baseurl: ""
+url-pretty: "trace-workshop.github.io"
 
 title: TRACE @ SIGIR {year}
 description: "{title_long}"
@@ -77,6 +94,7 @@ edition:
   proposal_decision: "TBD"
   # Leave empty until they exist; the pages show "to be announced".
   submission_url: ""
+  # One address, or several separated by commas.
   contact_email: "{contact_email}"
   # Above 0 shows "Further organizers will be announced." Set to 0 when the team is complete.
   open_organizer_slots: 0
@@ -102,69 +120,85 @@ defaults:
 '''
 
 
+def require_clean_git(repo: Path) -> None:
+    try:
+        out = subprocess.run(["git", "-C", str(repo), "status", "--porcelain"],
+                             capture_output=True, text=True, check=True).stdout
+    except (FileNotFoundError, subprocess.CalledProcessError):
+        return  # not a git checkout; nothing to protect
+    if out.strip():
+        sys.exit("This repository has uncommitted changes. Commit or stash them first.")
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("year", type=int, help="year of the new edition, e.g. 2028")
-    ap.add_argument("--out", type=Path, help="output folder (default: ../sigirYYYY next to this site)")
+    ap.add_argument("--archive-out", type=Path,
+                    help="folder for the outgoing edition's archive (default: ../sigirYYYY next to this site)")
     args = ap.parse_args()
 
     src = Path(__file__).resolve().parent.parent
-    dst = (args.out or src.parent / f"sigir{args.year}").resolve()
-    if dst.exists():
-        sys.exit(f"{dst} already exists; refusing to overwrite it.")
-
     cfg = (src / "_config.yml").read_text()
     if START not in cfg or END not in cfg:
         sys.exit("_config.yml is missing the EDITION SETTINGS markers.")
 
     old_year = int(field(cfg, "year"))
     old_number = int(field(cfg, "number"))
-    old_baseurl = field(cfg, "baseurl")
     old_conf = field(cfg, "conference")
     contact = field(cfg, "contact_email")
     labels = re.findall(r'^\s*- label:\s*"([^"]+)"', cfg, re.M)
     if args.year <= old_year:
         sys.exit(f"New year {args.year} must be after the current edition ({old_year}).")
 
-    shutil.copytree(src, dst, ignore=lambda d, names: [n for n in names if n in SKIP])
+    archive = (args.archive_out or src.parent / f"sigir{old_year}").resolve()
+    if archive.exists():
+        sys.exit(f"{archive} already exists; refusing to overwrite it.")
+    require_clean_git(src)
 
-    # 1) rewrite the edition block
+    # 1) archive the outgoing edition under /sigirYYYY
+    shutil.copytree(src, archive, ignore=lambda d, names: [n for n in names if n in SKIP])
+    a_cfg = set_field(cfg, "baseurl", f"/sigir{old_year}")
+    a_cfg = set_field(a_cfg, "url-pretty", f"trace-workshop.github.io/sigir{old_year}")
+    a_cfg = set_field(a_cfg, "status", "past")
+    (archive / "_config.yml").write_text(a_cfg)
+
+    # 2) reset this site for the new year
     head, rest = cfg.split(START, 1)
     _, tail = rest.split(END, 1)
-    new_cfg = head + edition_block(args.year, old_number + 1, contact, labels) + END + tail
-    (dst / "_config.yml").write_text(new_cfg)
+    (src / "_config.yml").write_text(head + edition_block(args.year, old_number + 1, contact, labels) + END + tail)
 
-    # 2) record the edition we are leaving
-    past = dst / "_data" / "past_editions.yml"
+    past = src / "_data" / "past_editions.yml"
     entries = [l for l in past.read_text().splitlines() if l.strip() and l.strip() != "[]"]
     header = [l for l in entries if l.startswith("#")]
     body = [l for l in entries if not l.startswith("#")]
     new_entry = [f'- name: "TRACE @ {old_conf} ({ordinal(old_number)} edition)"',
-                 f'  url: "https://trace-workshop.github.io{old_baseurl}"']
+                 f'  url: "{SITE}/sigir{old_year}/"']
     past.write_text("\n".join(header + new_entry + body) + "\n")
 
-    # 3) reset per-edition people and content
     resets = {
         "speakers.yml": "# Keynote speakers and panelists. Only list people who have CONFIRMED.\n"
-                        "# Copy the entry format from last year's site.\n[]\n",
+                        "# Copy the entry format from last year's archive.\n[]\n",
         "accepted_papers.yml": "# Fill after notifications. Each entry: title, authors, url (optional), award (optional).\n[]\n",
         "program_committee.yml": "# Program committee (organizers do not serve on the PC).\n"
                                  "# - name: \"Jane Doe\"\n#   affiliation: \"Example University\"\n[]\n",
-        "news.yml": "# News items, newest first. See last year's file for the format.\n"
+        "news.yml": "# News items, newest first. See last year's archive for the format.\n"
                     f'- text: "TRACE returns for its {ordinal(old_number + 1).lower()} edition at ACM SIGIR {args.year}."\n',
     }
     for name, text in resets.items():
-        (dst / "_data" / name).write_text(text)
+        (src / "_data" / name).write_text(text)
 
-    print(f"Created {dst}")
+    print(f"Archived SIGIR {old_year} to {archive}")
+    print(f"Reset {src.name} for SIGIR {args.year}")
     print(f"""
 Next steps (see MAINTAINING.md for the full checklist):
-  1. Edit {dst.name}/_config.yml: location, date, timezone, dates, conference_url.
-  2. Update _data/organizers.yml (and photos in img/), _data/committee.yml, _data/schedule.yml.
-  3. Revise the theme text in index.md and cfp.md.
-  4. Create the GitHub repository trace-workshop/{dst.name}, push, and enable Pages.
-  5. In the OLD site ({src.name}), set edition.status to "past" and push.
-  6. Point the org homepage (trace-workshop.github.io) to the new edition.""")
+  1. Create the GitHub repository trace-workshop/sigir{old_year}, push {archive},
+     and enable Pages. Check {SITE}/sigir{old_year}/ loads.
+  2. In this repository, edit _config.yml: location, date, timezone, dates,
+     conference_url, proposal_decision.
+  3. Update _data/organizers.yml (and photos in img/), _data/committee.yml, _data/schedule.yml.
+  4. Revise the theme text in index.md and cfp.md.
+  5. Remake img/share.png (it shows the year, place, date and "Proposed").
+  6. Review the diff, commit, and push.""")
 
 
 if __name__ == "__main__":

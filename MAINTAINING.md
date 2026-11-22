@@ -4,13 +4,12 @@
 
 | Repository (GitHub org `trace-workshop`) | URL | Purpose |
 |---|---|---|
-| `trace-workshop.github.io` | https://trace-workshop.github.io/ | Landing page listing every edition |
-| `sigir2027` | https://trace-workshop.github.io/sigir2027 | 2027 edition |
-| `sigir2028`, `sigir2029`, ... | https://trace-workshop.github.io/sigirYYYY | one repository per later edition |
+| `trace-workshop.github.io` (this one) | https://trace-workshop.github.io/ | The latest edition, always at the root |
+| `sigir2027`, `sigir2028`, ... | https://trace-workshop.github.io/sigirYYYY | Archive of each past edition |
 
-Each edition keeps its own repository so that a past year's page, papers, and
-speakers stay online unchanged as an archive. A new edition starts as a copy of
-the previous one.
+The root always shows the current year, so links you share keep working. When a new year starts, the outgoing edition is copied to its own archive repository, so its pages, papers, and speakers stay online unchanged.
+
+Until an archive repository exists, `404.html` sends old `/sigir2027/...` links to the same page at the root.
 
 ## Where to edit what
 
@@ -35,40 +34,36 @@ and call for papers:
 
 - `proposal`: proposal under review; shows the decision date
 - `accepted`, `cfp-open`: no banner
-- `past`: marks the page as an archive and points to the landing page
+- `past`: marks the page as an archive and points to the root (the latest edition). `scripts/new_edition.py` sets this in the archive copy.
 
 ## Starting a new edition (each year)
 
-1. From this repository run:
+1. Commit or stash your work. The script refuses to run on uncommitted changes, because it edits this repository in place.
+2. From this repository run:
    ```bash
    python3 scripts/new_edition.py 2028
    ```
-   This creates `../sigir2028` with:
-   - the edition number and base URL updated
-   - every date reset to `TBD`
-   - this edition added to the Past Editions list
-   - speakers, PC, accepted papers and news emptied
-2. In the new folder, fill in the EDITION SETTINGS block of `_config.yml`:
-   location, date, timezone, key dates, conference URL, decision date.
-3. Update `_data/organizers.yml` and photos, `_data/committee.yml`, `_data/schedule.yml`.
-4. Revise the theme text in `index.md` and `cfp.md`.
-5. Create the repository `trace-workshop/sigir2028`, push, and enable Pages
-   (see README.md).
-6. In the previous year's repository, set `edition.status: "past"` and push.
-7. In `trace-workshop.github.io`, update the "Latest edition" box and add the
-   new edition to the list.
+   This does two things:
+   - **Archive:** copies the current site to `../sigir2027`, with base URL `/sigir2027` and status `past`.
+   - **Reset in place:** rewrites this repository for 2028. The edition number goes up by one, every date becomes `TBD`, the status becomes `proposal`, 2027 is added to Past Editions, and speakers, PC, accepted papers, and news are emptied.
+3. Create the repository `trace-workshop/sigir2027`, push `../sigir2027` to it, and enable Pages (see README.md). Check that https://trace-workshop.github.io/sigir2027/ loads.
+4. In this repository, fill in the EDITION SETTINGS block of `_config.yml`: location, date, timezone, key dates, conference URL, decision date.
+5. Update `_data/organizers.yml` and photos, `_data/committee.yml`, `_data/schedule.yml`.
+6. Revise the theme text in `index.md` and `cfp.md`.
+7. Remake `img/share.png`, the link-preview image. It shows the year, place, date, and "Proposed".
+8. Review the diff, commit, and push.
 
 ## Timeline within one edition
 
 | When | What to update |
 |---|---|
 | Proposal submitted | status `proposal`, organizers, tentative dates |
-| Proposal accepted | status `accepted`; add the news item |
+| Proposal accepted | status `accepted`; add the news item; remake `img/share.png` without "Proposed" |
 | Call for papers opens | status `cfp-open`; `submission_url`; news item |
 | Speakers confirm | add them to `_data/speakers.yml` with photo and bio |
 | PC formed | `_data/program_committee.yml` (people who agreed to be listed) |
 | After notification | `_data/accepted_papers.yml`; final `_data/schedule.yml` |
-| After the workshop | slides or recordings links; then status `past` once the next edition exists |
+| After the workshop | slides or recordings links; the archive copy gets status `past` when the next edition starts |
 
 ## Rules of thumb
 

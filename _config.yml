@@ -3,8 +3,8 @@
 # scripts/new_edition.py rewrites this block when it creates the next edition.
 # =============================================================================
 
-# Each edition is its own repository "sigirYYYY" in the trace-workshop
-# GitHub organization, served at https://trace-workshop.github.io/sigirYYYY
+# The root site always shows the latest edition. Past editions are archived
+# in their own repositories, served at https://trace-workshop.github.io/sigirYYYY
 url: "https://trace-workshop.github.io"
 baseurl: ""
 url-pretty: "trace-workshop.github.io"

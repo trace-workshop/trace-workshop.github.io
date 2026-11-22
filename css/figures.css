@@ -1,6 +1,6 @@
 .tf {
   --ink: #2B2B2B; --ink2: #5C5C5C; --line: #D9DDE1; --accent: #2A6F97;
-  --bad: #D03B3B; --badtx: #B02F2F; --badbg: #FBEAEA; --good: #0CA30C; --pad: 22px;
+  --bad: #D03B3B; --badtx: #B02F2F; --badbg: #FBEAEA; --good: #0CA30C; --goodtx: #0A7A0A; --pad: 22px;
   --panel: #FCFDFD;
   max-width: 100%;
   margin: 36px 0 28px;
@@ -18,10 +18,10 @@
 .tf-b { border-left: 4px solid var(--bad); padding-left: 9px; font-size: 13.5px; line-height: 1.4; color: var(--ink2); }
 .tf-b b { display: block; font-size: 12.5px; letter-spacing: .02em; color: var(--badtx); }
 .tf-b .stop { color: var(--ink); }
-.tf-b.bench { border-left: 0; border-right: 4px solid var(--accent); padding: 0 9px 0 0; text-align: right; }
-.tf-b.bench b { color: var(--accent); }
+.tf-b.bench { border-left: 0; border-right: 4px solid var(--good); padding: 0 9px 0 0; text-align: right; }
+.tf-b.bench b { color: var(--goodtx); }
 
-.tf-track { position: relative; border: 1.5px dashed var(--accent); border-radius: 6px; padding: 64px var(--pad) 10px; }
+.tf-track { position: relative; border: 1.5px dashed var(--good); border-radius: 6px; padding: 64px var(--pad) 10px; }
 .tf-zone { position: absolute; left: 0; top: 0; bottom: 0; width: calc(var(--pad) + (100% - 2 * var(--pad)) * 3 / 20); background: var(--badbg); border-radius: 5px 0 0 5px; }
 .tf-dots { position: relative; display: grid; grid-template-columns: repeat(20, 1fr); height: 20px; align-items: center; }
 .tf-dots::before { content: ""; position: absolute; left: 2.5%; right: 2.5%; top: 50%; border-top: 2px solid var(--line); }
