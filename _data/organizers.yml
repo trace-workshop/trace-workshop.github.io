@@ -12,7 +12,7 @@ ehossain:
 sdipta:
   name: "Shubhashis Roy Dipta"
   url: "https://roydipta.com/"
-  affiliation: "University of Maryland, Baltimore County"
+  affiliation: "PhD Candidate, UMBC<br>Incoming Applied Scientist II, Amazon"
   img: "sdipta.jpg"
   bio: "Shubhashis Roy Dipta is a final-year PhD candidate in computer science at the University of Maryland, Baltimore County, working on reinforcement-learning post-training for LLM agents, reasoning, and evaluation. His work on agents and retrieval includes query decomposition for multilingual video retrieval (AACL 2025) and policy-aware agent alignment (EMNLP 2026), with 2026 main-conference papers at NeurIPS, ACL, and EMNLP. He has interned at Amazon Alexa AI and Scale AI, built a token-efficient memory layer for LLM agents at Causal Dynamics Lab, and serves as an area chair for ACL Rolling Review."
 
